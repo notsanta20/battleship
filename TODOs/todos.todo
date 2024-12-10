@@ -1,0 +1,33 @@
+projects:
+    ☐ start screen
+        ☐ play button on-click display choose players
+    ☐ choose player
+        ☐ choose P vs P or P vs C -> if P send 1, if C send 0
+    ☐ render board (backend)
+        ☐ create grid in dom
+        ☐ create board and place ships
+    ☐ playgame
+        ☐ player 1 chance and disable player 2 / computer
+        ☐ if ship hits same player plays
+    ☐ display winner
+    ☐ play again
+
+
+TODO:
+    ☐ start screen
+    ☐ play button -> modal display to choose players
+    ☐ choose player button send 1/0
+    ☐ create computer moves with random numbers (if ship hits then next move need to be neighbors)
+    ☐ render 2 game boards (make sure they are not connected)
+    ☐ player 1 chance and next player 2 / computer change on loop until there is winner
+    ☐ if hits ship, same player plays
+    ☐ display hit area in dom
+    ☐ when all 5 ships destroyed display winner
+    ☐ display winner
+    ☐ play again button
+    ☐ reset all and go back choose player screen
+
+
+FIXME:
+    ☐ on-click both boards are affected now
+    ✔ type error on click @done(24-12-04 21:49)
