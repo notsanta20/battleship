@@ -14,7 +14,9 @@ const createBoard = (board,player)=>{
             child.classList.add(`box`);
             if(board[j][i]){
                 child.classList.add(`ship`);
-                child.textContent = `X`;
+            }
+            else{
+                child.classList.add(`water`);
             }
             child.dataset.x = j;
             child.dataset.y = i;

@@ -113,26 +113,4 @@ const gameBoard = (player) => {
     return {printBoard,board};
 };
 
-//check if shot is already played and attack
-// const receiveAttack = (x,y,shots,currentBoard) => {
-//      if(!shots.has(`${x}${y}`)){
-//         const ship = currentBoard[x][y];
-//         shots.add(`${x}${y}`);
-//         if(!ship){
-//             console.log(`waterrrr`);
-//         }
-//         else{
-//             ship.hit();
-//             ship.isSunk();
-//             if(ship.sunkStat){
-//                 totalShipsSunk++;
-//                 console.log(`its an HITT!!! The ship has sunk`);
-//             }
-//             else{
-//                 console.log(`its an HITT!!`);
-//             }
-//         }
-//     }
-// };
-
 export{gameBoard};

@@ -558,8 +558,12 @@ video {
   display: flex;
 }
 
-.grid {
-  display: grid;
+.h-full {
+  height: 100%;
+}
+
+.grow {
+  flex-grow: 1;
 }
 
 .flex-col {
@@ -570,33 +574,42 @@ video {
   align-items: center;
 }
 
-.justify-between {
-  justify-content: space-between;
+.justify-center {
+  justify-content: center;
 }
 
 .justify-evenly {
   justify-content: space-evenly;
 }
 
-.gap-5 {
-  gap: 1.25rem;
+.gap-10 {
+  gap: 2.5rem;
 }
 
 .gap-2 {
   gap: 0.5rem;
 }
 
-.gap-10 {
-  gap: 2.5rem;
+.gap-24 {
+  gap: 6rem;
 }
 
-.gap-20 {
-  gap: 5rem;
+.gap-5 {
+  gap: 1.25rem;
 }
 
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
+.text-center {
+  text-align: center;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .text-4xl {
@@ -610,10 +623,11 @@ video {
 }
 
 :root{
-  --main: #6D774C;
+  --main: #5d6444;
   --dark: #16190D;
   --light: #4E5633;
   --red: #752222;
+  --water: #226975;
 }
 
 @font-face {
@@ -632,6 +646,22 @@ video {
 body {
   background-color: var(--main);
   color: var(--dark);
+  height: 100vh;
+}
+
+.page-2,
+.page-3,
+.page-4{
+  display: none;
+}
+
+.page-3{
+  padding-top: 5%;
+  padding-bottom: 35%;
+}
+
+.btn:hover{
+  color: #98a086;
 }
 
 .container{
@@ -649,12 +679,20 @@ body {
   background-color: var(--light);
 }
 
-.ship{
+.ship,
+.water{
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 2.5rem;
+}
+
+.ship{
   color: var(--red);
+}
+
+.water{
+  color: var(--dark);
 }
 
 .ship:hover{

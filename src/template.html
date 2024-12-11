@@ -5,25 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Battleship</title> 
   <body>
-    <div class="page-1 flex flex-col items-center gap-20">
+    <div class="page-1 h-full flex flex-col justify-center items-center gap-24">
       <header class="flex flex-col items-center gap-2">
         <h1 class="title text-4xl">WELCOME TO</h1>
         <h2 class="title text-6xl">BATTLESHIP</h2>
       </header>
-      <button class="text-xl">START</button>
+      <button class="btn start-btn text-3xl">START</button>
     </div>
-    <!-- <div class="page-3 flex flex-col">
-      <header>
-        <h2>Battleship</h2>
+    <div class="page-2 h-full flex flex-col justify-center items-center gap-24 text-3xl">
+      <div>CHOOSE PLAYERS</div>
+      <div class="player-btns flex flex-col justify-center items-center gap-10">
+        <button class="btn choose-player" data-play = "0">PLAYER 1 vs. PLAYER 2</button>
+        <button class="btn choose-player" data-play = "1">PLAYER 1 vs. COMPUTER</button>
+      </div>
+    </div>
+    <div class="page-3 h-full flex flex-col justify-center items-center gap-24">
+      <header class="text-2xl">
+        <h3>Battleship</h3>
       </header>
-      <section class="grid gird-cols-1">
+      <section class="grow">
         <div class="main-container flex gap-5 justify-evenly">
         </div>
       </section>
-      <footer>
+      <footer class="">
         <div class="message">test</div>        
       </footer>
-    </div> -->
+    </div>
+    <div class="page-4 h-full flex flex-col justify-center items-center gap-24 text-3xl">
+      <div class="win-message text-center"></div>
+      <button class="btn play-again">PLAY AGAIN</button>
+    </div>
   </body>
 </html>
 
