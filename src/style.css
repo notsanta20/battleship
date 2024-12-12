@@ -25,6 +25,7 @@
 body {
   background-color: var(--main);
   color: var(--dark);
+  /* text-shadow: 0 0 2px rgba(22, 25, 13, 0.8); */
   height: 100vh;
 }
 
@@ -35,12 +36,16 @@ body {
 }
 
 .page-3{
-  padding-top: 5%;
-  padding-bottom: 35%;
+
 }
 
 .btn:hover{
   color: #98a086;
+  text-shadow: 0 0 2px rgba(152, 160, 134, 0.8);
+}
+
+.box-container{
+  height: 500px;
 }
 
 .container{
@@ -78,3 +83,30 @@ body {
   background-color: rgb(90, 90, 90);
 }
 
+.mess-container{
+  width: 1100px;
+  text-align: center;
+  margin: 4px;
+  padding: 2rem 1.5rem;
+  border: 4px solid black;
+  background-color: var(--main); 
+
+  border-image-slice: 3;
+  border-image-width: 3;
+  border-image-source: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8" ?><svg version="1.1" width="8" height="8" xmlns="http://www.w3.org/2000/svg"><path d="M3 1 h1 v1 h-1 z M4 1 h1 v1 h-1 z M2 2 h1 v1 h-1 z M5 2 h1 v1 h-1 z M1 3 h1 v1 h-1 z M6 3 h1 v1 h-1 z M1 4 h1 v1 h-1 z M6 4 h1 v1 h-1 z M2 5 h1 v1 h-1 z M5 5 h1 v1 h-1 z M3 6 h1 v1 h-1 z M4 6 h1 v1 h-1 z" fill="rgb(33,37,41)" /></svg>');
+}
+
+.animation{
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  animation: 
+    typing 2s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}

@@ -30,18 +30,23 @@ const playGame = (computer)=>{
     let isHit = false;
     let currX = 0; 
     let currY = 0; 
-
+    let timeOut = true;
+    console.log(allPlayers.player1.board);
     const event = ()=>{
         const divContainer = document.querySelectorAll(`.container`);
         for(let divs of divContainer){
             divs.addEventListener('click',event=>{
-                const player = event.target.dataset.player;
-                if(player === currentPlayerTag){
-                    const x = parseInt(event.target.dataset.x);
-                    const y = parseInt(event.target.dataset.y);
-                    receiveAttack(x,y,currentPlayer.playedShots,currentBoard,event.target);
-                    if(computer && currentPlayerTag === `p1`){
-                        aiMove(currX,currY,containerX);
+                if(timeOut){
+                    const player = event.target.dataset.player;
+                    if(player === currentPlayerTag){
+                        const x = parseInt(event.target.dataset.x);
+                        const y = parseInt(event.target.dataset.y);
+                        receiveAttack(x,y,currentPlayer.playedShots,currentBoard,event.target);
+                        setTimeout(()=>{
+                            if(computer && currentPlayerTag === `p1`){
+                                aiMove(currX,currY,containerX);
+                            }                                
+                        },5000)
                     }
                 }
             });
@@ -53,14 +58,20 @@ const playGame = (computer)=>{
            const ship = currentBoard[x][y];
            shots.add(`${x}${y}`);
            target.textContent = `X`;
+           message.classList.add(`animation`);
+           timeOut = false;
+
            if(!ship){
             message.textContent = `The missile has hit the water.`;
-            target.classList.add(`water`);
-            changeStatus();
             isHit = false;
+            setTimeout(()=>{
+                changeStatus();
+            },3000)
            }
            else{
-            target.classList.add(`ship`);
+            setTimeout(() => {
+                timeOut = true;
+            }, 3000);
             ship.hit();
             ship.isSunk();
             isHit = true;
@@ -77,6 +88,9 @@ const playGame = (computer)=>{
                 aiMove(currX,currY,containerX);
             }
            }
+           setTimeout(() => {
+            message.classList.remove(`animation`);
+           }, 3000);
        }
    };
 
@@ -90,29 +104,38 @@ const playGame = (computer)=>{
         currentPlayer = allPlayers.player2;
         currentBoard = allPlayers.player1.board.board;
     }
+    timeOut = true;
+    if(currentPlayerTag === `p2`){
+        message.textContent = `Player 1's turn`
+    }
+    else{
+        if(computer){
+            message.textContent = `Computer's turn`
+        }
+        else{
+            message.textContent = `Player 2's turn`
+        }
+    }
    }
 
    const aiMove = ()=>{
     let x,y;
-    let nextMoves = Math.floor(Math.random() * 4);
     if(isHit){
-        let m = currX;
-        let n = currX;
-        if(nextMoves === 0) m--;
-        if(nextMoves === 1) m++;
-        if(nextMoves === 2) n--;
-        if(nextMoves === 4) n++;
+        console.log(`test`)
+        let nextMoves = Math.floor(Math.random() * 4);
+        x = currX;
+        y = currY;
+        if(nextMoves === 0) x--;
+        if(nextMoves === 1) x++;
+        if(nextMoves === 2) y--;
+        if(nextMoves === 3) y++;
 
-        if((m > -1 && m < 10) && (n > -1 && n < 10)){
-            x = m;
-            y = n;
-        }
-        else{
+        if((x < -1 && x > 10) && (y < -1 && y > 10)){
             while(currentPlayer.playedShots.has(`${x}${y}`)){
                 [x,y] = computerMoves();
+                console.log(`used`);
             }
-        }
-        
+        }    
     }
     else{
         [x,y] = computerMoves();
@@ -124,7 +147,8 @@ const playGame = (computer)=>{
     currY = y;
     let containerY = containerX.item(x).children;
     let target = containerY.item(y);
-    receiveAttack(x,y,currentPlayer.playedShots,currentBoard,target);
+    receiveAttack(y,x,currentPlayer.playedShots,currentBoard,target);
+    console.log(x,y);
 }
 
    const getWinner = ()=>{

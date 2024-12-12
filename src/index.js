@@ -1,4 +1,5 @@
 import "./output.css"
+
 import { playGame } from "./modules/player";
 
 
@@ -28,4 +29,5 @@ choosePlayers.forEach(player=>{
 playAgainBtn.addEventListener(`click`, ()=>{
     pageFour.style.display = `none`;
     pageOne.style.display = `flex`;
+    document.querySelector(`.message`).textContent = ``;
 });
