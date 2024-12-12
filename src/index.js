@@ -27,7 +27,13 @@ choosePlayers.forEach(player=>{
 });
 
 playAgainBtn.addEventListener(`click`, ()=>{
+    const playerOneScore = document.querySelector(`.player-1-score`);
+    const playerTwoScore = document.querySelector(`.player-2-score`);
+
     pageFour.style.display = `none`;
     pageOne.style.display = `flex`;
     document.querySelector(`.message`).textContent = ``;
+    playerOneScore.textContent = `Player 1 Score - 0`;
+    playerTwoScore.textContent = `Player 2 Score - 0`;
+
 });
