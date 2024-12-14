@@ -1,7 +1,5 @@
 import "./output.css"
-
-import { playGame } from "./modules/player";
-
+import { playGame } from "./modules/playGame";
 
 const startBtn = document.querySelector(`.start-btn`);
 const pageOne = document.querySelector(`.page-1`);
@@ -11,11 +9,14 @@ const pageFour = document.querySelector(`.page-4`);
 const choosePlayers = document.querySelectorAll(`.choose-player`);
 const playAgainBtn = document.querySelector(`.play-again`);
 
+
+//start game
 startBtn.addEventListener(`click`, ()=>{
     pageOne.style.display = `none`;
     pageTwo.style.display = `flex`;
 });
 
+//choose players and start playGame
 choosePlayers.forEach(player=>{
     player.addEventListener(`click`, ()=>{
         pageTwo.style.display = `none`;
@@ -26,6 +27,7 @@ choosePlayers.forEach(player=>{
     });
 });
 
+//play again.
 playAgainBtn.addEventListener(`click`, ()=>{
     const playerOneScore = document.querySelector(`.player-1-score`);
     const playerTwoScore = document.querySelector(`.player-2-score`);

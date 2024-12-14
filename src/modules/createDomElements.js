@@ -1,3 +1,4 @@
+//create board in DOM using array
 const createBoard = (board,player)=>{
     const mainContainer = document.querySelector(`.main-container`);
     const container = document.createElement(`div`);
