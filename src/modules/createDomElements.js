@@ -8,7 +8,7 @@ const createBoard = (board,player)=>{
 
     for(let i = 0; i < 10; i++){
         const div = document.createElement(`div`);
-        div.classList.add(`box`);
+        div.classList.add(`box-container`);
         container.append(div);
         for(let j = 0; j < 10; j++){
             const child = document.createElement(`div`);
